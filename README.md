@@ -1,5 +1,4 @@
 # Proyecto simulación cine en java
-
 ---
 
 
