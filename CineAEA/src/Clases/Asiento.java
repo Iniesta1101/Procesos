@@ -1,9 +1,13 @@
 package Clases;
-
+/**
+ * Creamos la clase asiento para que el programa sea capaz de ver que asiento está ocupado y cuál no.
+ * 
+ */
 public class Asiento {
 	private int fila;
 	private int columna;
 	private boolean ocupado;
+
 	public Asiento(int fila, int columna) {
 		this.fila = fila;
 		this.columna = columna;
@@ -33,10 +37,6 @@ public class Asiento {
 			return "El asiento de la fila " + fila + " y columna " + columna + " esta ocupado";
 		}else {
 			return "El asiento de la fila " + fila + " y columna " + columna + " esta libre";
-		}
-		
+		}	
 	}
-	
-	
-	
 }

@@ -19,13 +19,12 @@ public class Cliente implements Runnable{
 
 	@Override
 	public void run() {
+		//Ponemos el cine en synchronized porque es la clase que se comparte entre los hilos
 		synchronized (gr.getCine()) {
 			gr.intentarReservar(this, filaDeseada, columnaDeseada);
+			//Notificamos que este hilo cliente ya ha terminado su acción
 			gr.getCine().notifyAll();
 		}
-		
-		
-		
 	}
 
 	public String getNombre() {
@@ -91,11 +90,4 @@ public class Cliente implements Runnable{
 	public void setGr(GestorReservas gr) {
 		this.gr = gr;
 	}
-	
-	
-
-	
-	
-	
-	
 }

@@ -3,12 +3,14 @@ package Clases;
 public class Main {
 
 	public static void main(String[] args) {
+		//Inicializamos las clases
 		 Cine cine = new Cine(generarCuentas("cine"));
 		 ProcesadorPagos pg = new ProcesadorPagos(cine);
 		 GestorReservas gr = new GestorReservas(cine, pg);
 		 Visualizador v = new Visualizador(cine);
 		 Thread th = new Thread(v);
 		 th.start();
+		//Este bucle hace que la simulación no finalice
 		 while(true) {
 			 String nombre = nombreAleatorio();
 			 String apellido = apellidoAleatorio();
@@ -16,26 +18,29 @@ public class Main {
 			 th = new Thread(c);
 			 th.start();
 			 try {
+				//Hacemos que espere para que al visualizador le de tiempo a mostrarse
 				Thread.sleep(100);
 			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
+			//Cuando el cine este lleno, lo vaciamos, y hacemos que el bulce vuelva a empezar con nuevos clientes
 			if(cine.estaLleno()) {
 				System.out.println("El cine esta lleno, el cine ha recaudado " + cine.getRecaudacionTotal() + "€");
 				System.out.println("Vaciando la sala para que comience la siguiente película");
 				try {
 					Thread.sleep(3000);
 				} catch (InterruptedException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
 				cine.reiniciarAsientos();
-				
 			}
 		 }
 	}
 	
+
+	/**
+	 * Generan variables aleatorias para las diferentes datos que necesitan las clases
+	 */
 	public static String generarCuentas(String nombre) {
 		String cuenta = "";
 		for(int i = 0; i < nombre.length(); i++) {
