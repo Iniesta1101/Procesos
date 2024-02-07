@@ -18,4 +18,4 @@ Este proyecto está compuesto:
 - Main: La clase Main sirve como el punto de inicio y control para la simulación de reserva de entradas de cine. Inicializa todos los componentes necesarios y gestiona la ejecución de la simulación.
 
 ---
-URL: https://github.com/Iniesta1101/Procesos
+URL: https://github.com/Iniesta1101/Procesos/tree/main/CineAEA
